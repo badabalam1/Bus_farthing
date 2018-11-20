@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="https://dl1.wpws.kr/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://unpkg.com/xeicon@2.3.3/xeicon.min.css">
+        <link rel="stylesheet" href="../stylesheet/style1.css">
+        <link rel='stylesheet' href='../stylesheet/istyle.css'>
+        <link rel="stylesheet" href="http://fonts.googleapis.com/earlyaccess/notosanskr.css">
+        <script src="https://dl2.wpws.kr/wpws/js/jquery-1.12.min.js"></script>
+        <script src="https://dl2.wpws.kr/wpws/js/bootstrap.min.js"></script>
+        <script src="../javascript/main2.js"></script>
+    </head>
+    <body>
+        <nav class="navbar">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" style="width:43px;" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button> 
+                    <a class="navbar-brand" href="/3">서울버스 안내</a>
+                </div>
+                <div class="collapse navbar-collapse" id="menu">
+                    <ul class="nav navbar-nav">
+                        <li><a href="/"><i class="xi-home"></i>메인</a></li> 
+                        <li><a href="./3"><i class="xi-bus"></i>버스 검색</a></li> 
+                        <li class="active"><a href="./4"><i class="xi-gas-station"></i>정류자 검색</a> </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div>
+            <% if(json == undefined) { %>
+                <div class="container text-center">
+                <%} else {%>
+                <div style="width: 700px;float: left;margin-left: 75px;" class="container text-center">
+                <% } %>
+                        <h1>버스 정보</h1>
+                        <hr />
+                        <div id="contents">
+                        <h3><%= bus %></h3>
+                        <hr />
+                        <table>
+                            <tr>
+                                <td class="td_header">정류소명</td>
+                                <td class="td_header">정류소번호</td>
+                            </tr>
+                            <% let a = ''; %>
+                            <% a = name %>
+                            <% if(a != '') {
+                                for(let i =0; i < name.length; i++) { %>
+                                    <tr>
+                                        <td><a href='?name=<%= number[i] %>'><%= name[i] %></a></td>
+                                        <td><%= number[i] %></td>
+                                    </tr>
+                            <% }} %>
+                        </table>
+                    </div>
+                </div>
+            <div id="footer">
+            <p>
+                이 사이트는 프로젝트 목적으로 제작된 사이트입니다.
+                <br />
+                해당 부분으로 정보 제공처에 민원을 제기하지 마시기 바랍니다.
+            </p>
+        </div>
+    </body>
+</html>

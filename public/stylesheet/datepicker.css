@@ -1,0 +1,78 @@
+.datepickerdropdown {
+  position: absolute;
+  text-align: center;
+  margin: auto;
+  width: 256px;
+  z-index: 999;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+}
+
+.datepickerdropdown table {
+  margin: auto;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.monthDsp
+{
+  width: 80px;
+  height: 30px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.container2 {
+  display: none;
+}
+
+#contents1 {
+  text-align: center;
+}
+
+.daysRow
+{
+  height: 30px;
+}
+
+.datepickerdropdown table input {
+  border: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.datepickerdropdown table input[type=button] {
+  height: 25px;
+  width: 2em;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  border-radius: 0;
+}
+
+.datepickerdropdown table input[type=button]:hover, .datepickerdropdown table input[type=button]:active {
+  background-color: #30a5ee;
+  color: white;
+  transition: all .3s ease;
+  transition-property: background-color, color;
+}
+
+.datepickerdropdown table .selected/*, .datepickerdropdown table .today*/ {
+  background-color: #30a5ee;
+  color: white;
+}
+
+.datepickerdropdown table input[type=button]:disabled, .datepickerdropdown input .outofrange {
+  color: #ccc;
+  background-color: white;
+  cursor: not-allowed;
+  border: none;
+}
+
+.datepickerdropdown input.othermonth {
+  color: #ccc;
+}
+
+input{
+  background-color: #fff;
+}

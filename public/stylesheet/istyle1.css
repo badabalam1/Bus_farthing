@@ -1,0 +1,63 @@
+#contents{
+    text-align: center;
+    display: absolute;
+}
+table { font-family:'Noto Sans KR', sans-serif; text-align: center; margin: auto; width:100% }
+.td_header{ padding-right: 10px; padding-left: 10px; font-weight: 300; letter-spacing: -0.4px}
+#footer{
+    text-align: center;
+    letter-spacing: -0.4px;
+    margin-top: 30px;
+}
+@media screen and ( min-width: 561px){
+    .td_header{
+        font-size: 2.625rem;
+    }
+}
+@media screen and ( max-width: 561px){
+    .td_header{
+        font-size: 2.125rem;
+    }
+}
+hr{
+    border-top: 1px solid #b6b6b6;
+}
+.result > table > tr {
+    border-top: 1px solid #b6b6b6;
+}
+.location{
+    font-size: 2rem;
+    border-bottom: 1px solid #b6b6b6;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-weight: 250;
+    text-align: left;
+    background-color: rgba(204, 204, 204, 0.4)
+}
+.arvl_i{
+    border-bottom: 0px;
+}
+.number{
+    font-size: 1.875rem;
+}
+.blue{
+    color: #6175F5;
+}
+.red{
+    color: #F46043;
+}
+.direct{
+    color: #F46043;
+}
+.green{
+    color: #4CA81A;
+}
+.gbus{
+    color: #00A4A2;
+}
+.airport{
+    color: #9F7A63;
+}
+.iframe {
+    width:100px;
+}

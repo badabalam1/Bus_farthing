@@ -1,0 +1,102 @@
+<!DOCTYPE HTML>
+<html>
+    <style>
+        td {
+            padding: 1px;
+        }
+    </style>
+    <head>
+        <title>고속버스 시간표</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="https://dl1.wpws.kr/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://unpkg.com/xeicon@2.3.3/xeicon.min.css">
+        <link rel="stylesheet" href="../stylesheet/style.css">
+        <link rel="stylesheet" href="http://fonts.googleapis.com/earlyaccess/notosanskr.css">
+        <link rel="stylesheet" href="../stylesheet/datepicker.css">
+        <script src="https://unpkg.com/bootstrap.native@2.0.23/dist/bootstrap-native.min.js"></script>
+        <script src="../javascript/datepicker.js"></script>
+        <script src='../javascript/main.js'></script>
+        <script src='../javascript/config.js'></script>
+    </head>
+    <body>
+        <nav class="navbar">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" style="width:43px;" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/1"><b>고속버스 안내</b></a>
+                </div>
+                <div class="collapse navbar-collapse" id="menu">
+                    <ul class="nav navbar-nav">
+                        <li><a href="../"><i class="xi-home"></i> 메인</a></li> 
+                        <li class="active"><a href="/1"><i class="xi-calendar-check"></i> 시간표</a> </li> 
+                        <li><a href="./2"><i class="xi-info-o"></i> 실시간 정보</a> </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container text-center" id="contents">
+            <h1>시간표 검색</h1>
+            <br />
+            <div id="form">
+                <input type="hidden" id="act" value="time">
+                <input type="text" name="deprNm" class="for" placeholder="출발지" autofocus autocomplete="off">
+                <br />
+                <i class="xi-arrow-down"></i>
+                <br />
+                <input type="text" name="arvlNm" class="for" placeholder="도착지" autofocus autocomplete="off">
+                <br />
+                <input type="button" id="date" class="for datepicker" data-min="20180809" data-max="20180909" value="20180809" onclick="return showDatePicker(date)">
+                <br />
+                <button class="btn btn-default submit" type="submit" onClick="submit();">검색</button>
+            </div>
+            <div id="footer">
+                <p>
+                이 사이트는 프로젝트 목적으로 제작된 사이트입니다.
+                <br />
+                해당 부분으로 정보 제공처에 민원을 제기하지 마시기 바랍니다.
+                </p>
+                <p id='demo'></p>
+            </div>
+        </div>
+        <div class="container2 text-center" id="contents1">
+            <div id="inner_content">
+                <h1>시간표 검색</h1>
+                <h4 id='day'>2018년 8월 10일 금요일</h4> 
+                <div id="header">
+                <h3 id='start' style="padding-bottom: 10px; border-bottom: 1px solid #a2a2a2; width: 500px; margin: auto;"></h3>
+                <div id="time_simple">
+                    <h4>
+                        운행 시간 : 약 <b id='time'></b>
+                    </h4>
+                </div>
+                </div>
+                <p style="clear:both; font-size:0px; "></p>
+                <hr />
+                <table id="time_t">
+                    <thead>
+                    <tr>
+                        <td class="td_header">출발 시간</td>
+                        <td class="td_header">고속사</td>
+                        <td class="td_header">등급</td>
+                        <td class="td_header">어른요금</td>
+                        <td class="td_header">초등생요금</td>
+                        <td class="td_header">중학생요금</td>
+                        <td class="td_header">잔여석 /총 좌석</td>
+                    </tr>
+                    </thead>
+                    <tbody id='result'>
+                    </tbody>
+                </table>
+            </div>
+            <p id='demo'></p>
+        </div>
+        <script>
+            initDatePicker();
+        </script>
+    </body>
+</html>
+        

@@ -1,0 +1,120 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <style>
+            td{ border-bottom: 0px solid #b6b6b6; }
+        </style>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="https://dl1.wpws.kr/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://unpkg.com/xeicon@2.3.3/xeicon.min.css">
+        <link rel="stylesheet" href="../stylesheet/style1.css">
+        <link rel='stylesheet' href='../stylesheet/istyle1.css'>
+        <link rel="stylesheet" href="http://fonts.googleapis.com/earlyaccess/notosanskr.css">
+        <script src="https://dl2.wpws.kr/wpws/js/jquery-1.12.min.js"></script>
+        <script src="https://dl2.wpws.kr/wpws/js/bootstrap.min.js"></script>
+        <script src="../javascript/main2.js"></script>
+    </head>
+    <body>
+        <nav class="navbar">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" style="width:43px;" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button> 
+                    <a class="navbar-brand" href="/3">서울버스 안내</a>
+                </div>
+                <div class="collapse navbar-collapse" id="menu">
+                    <ul class="nav navbar-nav">
+                        <li><a href="/"><i class="xi-home"></i>메인</a></li> 
+                        <li><a href="./3"><i class="xi-bus"></i>버스 검색</a></li> 
+                        <li class="active"><a href="./4"><i class="xi-gas-station"></i>정류자 검색</a> </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div>
+            <% if(json == undefined) { %>
+                <div class="container text-center">
+                <%} else {%>
+                <div style="width: 835px;float: left;margin-left: 20px;" class="container text-center">
+                <% } %>
+                        <h1>정류장번호</h1>
+                        <hr />
+                        <div id="contents">
+                        <h3><%= bus %></h3>
+                        <hr />
+                        <table>
+                            <tr style='border-bottom: 1px solid #b6b6b6;'>
+                                <td class="td_header">버스번호</td>
+                                <td class='td_header' style='width: 300px;'>&nbsp;&nbsp;</td>
+                                <td class="td_header" style='width: 400px;'>도착예정시간</td>
+                            </tr>
+                            <% let a = ''; %>
+                            <% a = name %>
+                            <% if(a != '') {
+                                for(let i =0; i < name.length; i++) { %>
+                                    <tr>
+                                        <td><img src='http://bus.go.kr/<%= img[i]%>'><a href='?number=<%= bus %>,<%= url[i] %>&bus=<%= bus %>'><%= number[i] %></a></td>
+                                        <% if(i % 2 == 0 ) { %>
+                                            <td><img src='http://bus.go.kr/<%=Kinds[i]%>'></td>
+                                        <% } else { %>
+                                            <td><img src='http://bus.go.kr/<%=Kinds[i+1]%>'></td>
+                                        <% } %>
+                                        <td><%= time1[i] %></td>
+                                    </tr>
+                                    <tr style='border-bottom: 1px solid #b6b6b6;'>
+                                        <td><%= name[i] %></td>
+                                        <% if(i % 2 == 0 ) { %>
+                                            <td><img src='http://bus.go.kr/<%=Kinds[i+1]%>'></td>
+                                        <% } else { %>
+                                            <td><img src='http://bus.go.kr/<%=Kinds[i]%>'></td>
+                                        <% }%>
+                                        <td><%= time2[i] %></td>
+                                    </tr>
+                            <% }} %>
+                        </table>
+                        <%if(result != undefined) { %>
+                            <div class='result' style='margin-top: 55px;'>
+                                <h3>버스 기본 정보</h3>
+                                <table>
+                                    <tr style='border-top: 1px solid #b6b6b6;'>
+                                        <td>버스번호</td>
+                                        <td><%=result[0]%></td>
+                                    </tr>
+                                    <tr style='border-top: 1px solid #b6b6b6;'>
+                                        <td>배차간격</td>
+                                        <td><%=result[1]%></td>
+                                    </tr>
+                                    <tr style='border-top: 1px solid #b6b6b6;'>
+                                        <td>첫차~막차</td>
+                                        <td><%=result[2]%></td>
+                                    </tr>
+                                    <tr style='border-top: 1px solid #b6b6b6;'>
+                                        <td>기점~종점</td>
+                                        <td><%=result[3]%></td>
+                                    </tr>
+                                    <tr style='border-top: 1px solid #b6b6b6;'>
+                                        <td>운수회사</td>
+                                        <td><%=result[4]%></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        <%}%>
+                    </div>
+                </div>
+                <div id='bus'>
+                    <% if(json) { %>
+                        <iframe style='margin-right: 40px;float: right;' width=1000px; height="850px" src='http://bus.go.kr/<%=json%>'>
+                            <style>
+                                .container {
+                                    width: 500px
+                                }
+                            </style>
+                    <%}%>
+                </div>
+            <div id="footer">
+        </div>
+    </body>
+</html>

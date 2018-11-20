@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="https://dl1.wpws.kr/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://unpkg.com/xeicon@2.3.3/xeicon.min.css">
+        <link rel="stylesheet" href="../stylesheet/style1.css">
+        <link rel="stylesheet" href="http://fonts.googleapis.com/earlyaccess/notosanskr.css">
+        <script src="https://dl2.wpws.kr/wpws/js/jquery-1.12.min.js"></script>
+        <script src="https://dl2.wpws.kr/wpws/js/bootstrap.min.js"></script>
+        <script src="../javascript/main2.js"></script>
+    </head>
+    <body>
+        <nav class="navbar">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" style="width:43px;" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button> 
+                    <a class="navbar-brand" href="/3">서울버스 안내</a>
+                </div>
+                <div class="collapse navbar-collapse" id="menu">
+                    <ul class="nav navbar-nav">
+                        <li><a href="/"><i class="xi-home"></i>메인</a></li> 
+                        <li><a href="/3"><i class="xi-bus"></i>버스 검색</a></li> 
+                        <li class="active"><a href="./4"><i class="xi-gas-station"></i>정류자 검색</a> </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container text-center">
+            <div id="debug"></div>
+            <h1>정류장 검색</h1>
+            <br />
+            <div id="form">
+                <form action='/4' method='post'>
+                <input type="hidden" id="act" value="z">
+                <input type="text" name="searchName" id="q1" placeholder="정류장 입력 ex) 사당">
+                <br>
+                <input id="search" type="button" onclick="submit();" value="검색"> 
+                </form>                              
+            </div>
+        </div>
+    </body>
+</html>
